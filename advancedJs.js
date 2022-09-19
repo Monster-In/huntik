@@ -98,3 +98,84 @@ let multiply = function(x){
 
 let multiplyByTwo=multiply(2);
 multiplyByTwo(3);
+
+class Student{
+    static count=0;  //static variable to call
+    constructor(name,age,ph_no,marks){
+        this.name=name;
+        this.age=age;
+        this.ph_no=ph_no;
+        this.marks=marks;
+        Student.countStudent();
+   }
+   static countStudent(){
+    return(Student.count++);     //this is how u access static variable
+   }
+   eligibleForCollege(){
+    if(this.marks >=40){
+        console.log(`${this.name} age ${this.age} is eligible for college`);
+    }
+    else if(this.marks<40){
+        console.log(`${this.name} age ${this.age} is not eligible for college`);
+    }
+   }
+   eligibleForPlacements=(minAge,minMarks)=>{
+    if(this.marks>=minMarks && this.age>=minAge){
+        console.log(`${this.name} is eligible for placements`);
+    }
+    else{
+        console.log(`${this.name} is not eligible for placements`);
+    }
+    }
+}
+
+const studentOne=new Student('Kohli',18,1234,34);
+const studentTwo=new Student('Dhoni',15,2345,35);
+const studentThree=new Student('Tej',16,4567,60);
+const studentFour=new Student('Rohit',17,7891,70);
+const studentFive=new Student('Sachin',19,3456,80);
+console.log(Student.countStudent());
+studentOne.eligibleForCollege();
+studentTwo.eligibleForCollege();
+studentThree.eligibleForCollege();
+studentFour.eligibleForCollege();
+studentFive.eligibleForCollege();
+
+
+// Fat Arrow Function
+" use strict " ;
+var getA = function(a){
+   return a ;
+} ;
+let getA = a => a;
+console.log(getA(1)); 
+
+let square = a => a*a ;
+console.log(square(5));
+
+var a=4;
+let squareWay = () => {return a*a };
+console.log(squareWay());
+
+let multi = (a,b) => {return a*b};
+console.log(multi(2,4));
+
+var z= function(){
+  this.val = 1 ;
+  setTimeout(() => {
+    this.val ++ ;
+    console.log ( this.val )
+  },1)
+};
+
+var xx=new z();
+
+var x = function(){
+    console.log (arguments[0])
+};
+x(1,2,3) ;
+
+var x = (...y) =>{
+    console.log (y[0])
+};
+x(1,2,3);
